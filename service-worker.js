@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/street-view-reconstruction/precache-manifest.00befeac46441164b88b14469fab3e03.js"
+  "/street-view-reconstruction/precache-manifest.f5066e04f93e10eb0be0b08b46c76322.js"
 );
 
 self.addEventListener('message', (event) => {
