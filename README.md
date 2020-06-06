@@ -1,3 +1,9 @@
+# Google Street View Reconstruction using Depth Map
+
+This repo experiments with using the depth map from the Google Street View data to perform reconstruction in real time.
+
+---------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
