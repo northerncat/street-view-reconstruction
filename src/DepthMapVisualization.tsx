@@ -63,7 +63,7 @@ const App : React.FC<{}> = () => {
                     maxDistance = Math.max(depthImage[h][w], maxDistance);
                 }
             }
-            console.log('Maximum distance: ', maxDistance);
+            // console.log('Maximum distance: ', maxDistance);
             ctx?.putImageData(imageData, 0, 0);
         } else if (depthMap) {
             const indices = depthMap.geometry.planeIndices;

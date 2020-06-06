@@ -78,7 +78,7 @@ function getStreetViewDepthDataUrl(options : {[key: string] : any}) : string {
     const queryString : string = Object.keys(options)
         .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(options[key]))
         .join('&');
-    return 'http://maps.google.com/cbk?' + queryString;
+    return 'https://maps.google.com/cbk?' + queryString;
 }
 
 export default class StreetViewUtility {
