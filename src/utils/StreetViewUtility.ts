@@ -83,7 +83,7 @@ function getStreetViewDepthDataUrl(options : {[key: string] : any}) : string {
 
 export default class StreetViewUtility {
 
-    static fetchStreetViewImage(lat: number = 0.0, long: number = 0.0) : Promise<StreetViewResponse> {
+    static fetchStreetViewImage(lat: number = 0.0, long: number = 0.0, callback: DepthMapCallback) : Promise<void> {
         const url = getStreetViewDepthDataUrl({ output: 'json', ll: `${lat},${long}`, dm: 1 });
         return fetch(url)
             .then((response) => {
@@ -91,6 +91,9 @@ export default class StreetViewUtility {
                     throw new Error(response.statusText);
                 }
                 return response.json();
+            })
+            .then((response) => {
+                StreetViewUtility.parseDepthMapString(response.model.depth_map, callback);
             });
     }
 

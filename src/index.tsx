@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import DepthMapVisualization from './DepthMapVisualization';
+import StreetViewReconstructionApp from './app/StreetViewReconstructionApp';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <DepthMapVisualization />
+    <StreetViewReconstructionApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
