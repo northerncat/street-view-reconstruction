@@ -18,7 +18,7 @@ const DepthMapDataDisplay = ({
         <table>
             <tbody>
                 <tr>
-                    <td>Number of Planes</td>
+                    <td>Number of Planes: </td>
                     <td>{depthMapData.metaData.numberOfPlanes}</td>
                 </tr>
             </tbody>

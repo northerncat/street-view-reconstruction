@@ -7,7 +7,7 @@ import DepthPlanesCanvas from '../components/depth-planes-canvas/DepthPlanesCanv
 import DepthMapDataDisplay from '../components/depth-map-data-display/DepthMapDataDisplay';
 import StreetViewPanorama from '../components/street-view-panorama/StreetViewPanorama';
 
-const LOCATION_STRING = '37.7769799,-122.3949447';
+const LOCATION_STRING = '37.77717636796375,-122.3951574097429';
 const INITIAL_LATITUDE: number = parseFloat(LOCATION_STRING.split(',')[0]);
 const INITIAL_LONGITUDE: number = parseFloat(LOCATION_STRING.split(',')[1]);
 
@@ -36,22 +36,34 @@ const StreetViewReconstructionApp : React.FC<{}> = () => {
     const drawDepthImage = true;
     const drawDepthMap = true;
 
-    const updateLocation = function(latitude: number, longitude: number) : void {
+    const updateLocation = (latitude: number, longitude: number) => {
         setLocation(new google.maps.LatLng(latitude, longitude));
     };
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <label>Latitude: {location.lat()}</label>
-                <label>Longitude: {location.lng()}</label>
-                <br/>
-                {<DepthMapDataDisplay depthMapData={depthMap} />}
-                <br/>
-                {drawDepthMap && <DepthPlanesCanvas planesData={planesData} />}
-                {drawDepthImage && <DepthImageCanvas width={512} height={256} depthImage={depthImage} />}
-                <StreetViewPanorama location={location} updateLocation={updateLocation}/>
+        <div className='App'>
+            <header className='App-header'>
+                <h2>Reconstrct Depth Maps from Google Street View</h2>
+                <h4>Navigate on the Street View Panorama to see the reconstructed depth maps</h4>
+                <div className='App-header_info'>
+                    <label>Latitude: {location.lat().toFixed(4)}</label>
+                    <br/>
+                    <label>Longitude: {location.lng().toFixed(4)}</label>
+                    {<DepthMapDataDisplay depthMapData={depthMap} />}
+                </div>
             </header>
+            <div className='App-body'>
+                <div className='App-body__depth-maps'>
+                  <h4>Detected planes color-coded by index</h4>
+                  {drawDepthMap && <DepthPlanesCanvas planesData={planesData} />}
+                  <h4>Shaded depth image based on depth</h4>
+                  {drawDepthImage && <DepthImageCanvas width={512} height={256} depthImage={depthImage} />}
+                </div>
+                <div className='App-body__panorama'>
+                  <h4>StreeView Panorama</h4>
+                  <StreetViewPanorama location={location} updateLocation={updateLocation}/>
+                </div>
+            </div>
         </div>
     );
 };

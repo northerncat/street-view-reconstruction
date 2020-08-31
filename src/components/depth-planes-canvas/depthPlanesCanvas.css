@@ -1,5 +1,5 @@
 canvas#depth-planes {
-    min-width: 40%;
+    min-width: 430px;
     max-width: 80%;
-    margin: 12px;
+    margin: 12px 0;
 }
