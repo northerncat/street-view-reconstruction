@@ -2,6 +2,8 @@
 
 This repo experiments with using the depth map from the Google Street View data to perform reconstruction in real time.
 
+Implementation is based on the algorithms presented in https://www.evl.uic.edu/documents/3drecomstrictionmcavallo.pdf
+
 ---------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
